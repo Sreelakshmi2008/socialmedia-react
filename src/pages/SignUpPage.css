@@ -1,0 +1,303 @@
+/* sign up */
+
+/* rectangle */
+.box {
+    box-sizing: border-box;
+    position: relative;
+    width: 80%;
+    max-width: 500px; 
+    margin-top: 15px; 
+    left:50%;
+    padding: 20px; 
+    min-height: 740px;
+  
+    transform: translateX(-50%); 
+    
+    border: 1.5px solid #A00B0B;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+/* Create your account */
+.title2 {
+    position: absolute;
+    width: 100%; /* Make the title full width */
+    max-width: 230px; /* Set max width as needed */
+    height: 46px;
+    left: 50%; /* Center the title horizontally */
+    transform: translateX(-50%); /* Adjust for centering */
+    top: 50px; /* Adjust the distance from the top */
+    font-family: 'Inknut Antiqua';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 46px;
+    color: #000000;
+}
+
+/* First name */
+.first_label {
+    position: absolute;
+    width: 90px;
+    height: 39px;
+    left: 28px;
+    top: 80px;
+    font-family: 'Inknut Antiqua';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 39px;
+    color: #000000;
+}
+
+/* Last name */
+.last_label {
+    position: absolute;
+    width: 86px;
+    height: 39px;
+    left: 33px;
+    top: 155px;
+    font-family: 'Inknut Antiqua';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 39px;
+    color: #000000;
+}
+
+/* Email */
+.email_label {
+    position: absolute;
+    width: 49px;
+    height: 39px;
+    left: 33px;
+    top: 230px;
+    font-family: 'Inknut Antiqua';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 39px;
+    color: #000000;
+}
+
+/* Phone Number */
+.phone {
+    position: absolute;
+    width: 125px;
+    height: 39px;
+    left: 33px;
+    top: 305px;
+    font-family: 'Inknut Antiqua';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 39px;
+    color: #000000;
+}
+
+/* Password */
+.pass1 {
+    position: absolute;
+    width: 79px;
+    height: 39px;
+    left: 33px;
+    top: 380px;
+    font-family: 'Inknut Antiqua';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 39px;
+    color: #000000;
+}
+
+/* Confirm Password */
+.pass2 {
+    position: absolute;
+    width: 151px;
+    height: 39px;
+    left: 33px;
+    top: 455px;
+    font-family: 'Inknut Antiqua';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 39px;
+    color: #000000;
+}
+
+/* Rectangle 4 */
+
+.first_name {
+    box-sizing: border-box;
+    width: calc(100% - 20px); /* Adjusted width to accommodate padding */
+    height: 40px;
+    margin-top: 95px; /* Added margin instead of top */
+    padding: 10px; /* Added padding for spacing */
+    border: 1.5px solid #A00B0B;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border-radius: 10px;
+}
+
+
+/* Rectangle 3 */
+.last_name {
+    box-sizing: border-box;
+    width: calc(100% - 20px); /* Adjusted width to accommodate padding */
+    height: 40px;
+    margin-top: 32px; /* Added margin instead of top */
+    padding: 10px; /* Added padding for spacing */
+    border: 1.5px solid #A00B0B;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border-radius: 10px;
+    
+}
+
+/* Rectangle 6 */
+.email_input {
+    box-sizing: border-box;
+    width: calc(100% - 20px); /* Adjusted width to accommodate padding */
+    height: 40px;
+    margin-top: 35px; /* Added margin instead of top */
+    padding: 10px; /* Added padding for spacing */
+    border: 1.5px solid #A00B0B;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border-radius: 10px;
+}
+
+/* Rectangle 7 */
+.phone_input {
+    box-sizing: border-box;
+    width: calc(100% - 20px); /* Adjusted width to accommodate padding */
+    height: 40px;
+    margin-top: 35px; /* Added margin instead of top */
+    padding: 10px; /* Added padding for spacing */
+    border: 1.5px solid #A00B0B;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border-radius: 10px;
+}
+
+/* Rectangle 9 */
+.pass1_input {
+    box-sizing: border-box;
+    width: calc(100% - 20px); /* Adjusted width to accommodate padding */
+    height: 40px;
+    margin-top: 35px; /* Added margin instead of top */
+    padding: 10px; /* Added padding for spacing */
+    border: 1.5px solid #A00B0B;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border-radius: 10px;
+}
+
+/* Rectangle 11 */
+.pass2_input {
+    box-sizing: border-box;
+    width: calc(100% - 20px); /* Adjusted width to accommodate padding */
+    height: 40px;
+    margin-top: 35px; /* Added margin instead of top */
+    padding: 10px; /* Added padding for spacing */
+    border: 1.5px solid #A00B0B;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border-radius: 10px;
+}
+
+/* Rectangle 8 */
+.profile_pic {
+    box-sizing: border-box;
+    position: absolute;
+    left: 28px;
+    top: 575px;
+    
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border-radius: 10px;
+    font-family: 'Inknut Antiqua';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 39px;
+    color: #000000;
+}
+
+.profile_pic::-webkit-file-upload-button {
+    border: 1.5px solid #A00B0B;
+    padding: 8px;
+    border-radius: 15px;
+}
+
+/* Sign in to your account */
+.link2 {
+    position: absolute;
+    left: 70%; /* Center the link horizontally */
+    transform: translateX(-50%); /* Adjust for centering */
+    bottom: 10px; /* Adjust the distance from the bottom */
+    font-family: 'Inknut Antiqua';
+    font-style: normal;
+    font-weight: 1000;
+    font-size: 15px;
+    line-height: 1.5; /* Adjust line height as needed */
+    text-decoration: none;
+    color:blue;
+}
+
+/* Select your profile pic */
+.profile {
+    position: absolute;
+    width: 100%;
+    height: 39px;
+    left: 33px;
+    top: 540px;
+    font-family: 'Inknut Antiqua';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 39px;
+    color: #000000;
+}
+
+
+/* Bootstrap button classes */
+.btn.create {
+    box-sizing: border-box;
+    position: absolute;
+    width: 45%; /* Make the button full width */
+    height: 45px;
+    left: 50%; /* Center the button horizontally */
+    top: 640px;
+    transform: translateX(-50%); /* Adjust for centering */
+    bottom: 20px; /* Adjust the distance from the bottom */
+    background: transparent; /* Set background to transparent by default */
+    border: 2px solid #A00B0B;
+    border-radius: 10px;
+    font-family: 'Inknut Antiqua';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 39px;
+    color: #A00B0B; /* Set text color to the desired color */
+}
+
+/* Bootstrap button hover effect */
+.btn.create:hover {
+    background-color: #A00B0B; /* Set background color on hover */
+    border-color: #A00B0B;
+    color: #FFFFFF;
+}
+
+/* Bootstrap button focus effect */
+.btn.create:focus {
+    box-shadow: 0 0 0 0.2rem rgba(128, 9, 9, 0.5);
+}
+
+
+.error{
+border:2px solid red;
+}
+
+
+
+.form-group:nth-child(6) .error_input {
+    top: 495px; /* Adjust the top position for the sixth form group */
+}
+
+/* Add more styles or adjust as needed */
+.ReactCrop{
+    display: block;
+  }

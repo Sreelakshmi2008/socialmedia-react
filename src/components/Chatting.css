@@ -1,0 +1,78 @@
+
+/* Shared Styles for Sections */
+.side_chat, .main_chat {
+    position: absolute;
+    
+    border: 1px solid #000000;
+    
+}
+
+/* First Section Styles */
+.side_chat {
+    width: 25%;
+    left: 2%;
+    padding-top: 30px;
+    height: 88vh;
+}
+
+/* Second Section Styles */
+.main_chat {
+    width: 65%;
+    
+    left: 32%;
+    height: 88vh;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0 50px 50px 50px;
+    overflow-Y:scroll;
+    position: relative;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.main_chat::-webkit-scrollbar {
+    display: none;
+
+}
+
+.messages-box{
+  
+    overflow-y: scroll;
+    height: 83%;
+}
+
+.messages-box::-webkit-scrollbar {
+    display: none;
+  
+
+}
+.message-send {
+    position: absolute;
+    width:100%;
+    bottom: 0;
+    
+  padding: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.message-send input{
+    
+    width:800px;
+    margin-left: 3px;
+    border-radius: 5px;
+    border:2px solid black;
+    
+}
+
+.send-btn{
+         border:2px solid black;
+    margin-left: 5px;
+
+    padding: auto;
+         border-radius: 50%;
+}
+      

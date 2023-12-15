@@ -1,0 +1,52 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffffff;
+  /* padding: 10px; */
+}
+
+.navbar-brand {
+  margin-right: auto; /* Push the brand to the left */
+}
+
+
+.nav_profile {
+  display: flex;
+  align-items: center;
+  margin-left: -177px;
+}
+
+.input-group {
+  margin-left: -342%;
+  width:240%
+
+}
+
+.input-group input {
+  border: 2px solid #bdbdbd;
+  border-radius: 10rem;
+  font-size: 12px;
+}
+
+.input-group .input-group-text {
+  background-color: white;
+}
+
+.nav_profile img,
+.nav_image {
+  border-radius: 50%;
+  width:50px;
+  height:50px;
+}
+
+.nav_profile span {
+  white-space: nowrap;
+  margin-right: 100px;
+}
+
+@media (max-width: 991px) {
+  .nav_profile{
+    display: none; /* Hide username on smaller screens */
+  }
+}

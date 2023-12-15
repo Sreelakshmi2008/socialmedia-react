@@ -1,0 +1,50 @@
+/* Add more specific selectors to override global styles */
+.btn.edit-profile-btn {
+    background-color: #3490dc !important;
+    color: #ffffff !important;
+    margin-right: 4%;
+    width:15%
+  
+  }
+
+  .btn.change-pass-btn {
+    background-color: #805ad5 !important;
+    color: #ffffff !important;
+    margin-right: 4%;
+    width:15%
+
+  }
+  
+  /* Add hover styles */
+  .btn.edit-profile-btn:hover {
+    background-color: #2779bd !important;
+  }
+  
+  
+  .btn.change-pass-btn:hover {
+    background-color: #6b46c1 !important;
+  }
+  /* ProfilePage.css */
+
+.follow-stats {
+    display: flex;
+    justify-content: space-around;
+    margin-left:30%;
+    flex-direction: row;
+    gap:.1%;
+    margin-right:30%
+}
+  
+  /* Decrease the distance between elements */
+  .follow-stats > div {
+    margin: 0 1rem; /* Adjust as needed */
+  }
+  
+  /* Optional: If you want to center the buttons below the stats */
+  .buttons-container {
+    display: flex;
+    justify-content: center;
+    margin-left:8%;
+    margin-top: 2%;
+  }
+  

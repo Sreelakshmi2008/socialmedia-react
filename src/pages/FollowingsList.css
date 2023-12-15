@@ -1,0 +1,14 @@
+.div-table-followings::-webkit-scrollbar {
+        display: none;
+    
+}
+
+.div-table-followings{
+    width: 70%; 
+    margin-top: 4%;
+  
+    margin-left:20%;
+    height: 70vh;
+    overflow-Y:scroll
+}
+
