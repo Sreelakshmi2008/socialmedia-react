@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faUser } from '@fortawesome/free-solid-svg-icons';
-import { baseUrl } from '../utils/constants';
+import { base, baseUrl } from '../utils/constants';
 
 function NavBar({ username,pic}) {
   return (
@@ -21,7 +21,7 @@ function NavBar({ username,pic}) {
         </div>
         <div className='nav_profile'>
           {pic ? (
-            <img src={'http://localhost:8000'+pic} alt="Profile" className='rounded-circle'  />
+            <img src={base+ pic} alt="Profile" className='rounded-circle'  />
           ) : (
             <FontAwesomeIcon icon={faUser} className="text-black nav_image" />
           )}

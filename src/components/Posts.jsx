@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser ,faHeart,faBookmark,faShare, faTrash, faComment} from '@fortawesome/free-solid-svg-icons';
 import { Link ,useNavigate,useParams} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { baseUrl ,like,deletepost,mypost,user,likecount,createpost} from '../utils/constants';
+import { baseUrl ,like,deletepost,mypost,user,likecount,createpost, base} from '../utils/constants';
 import axios from 'axios';
 import axiosInstance from '../utils/axiosInstance';
 import NavBar from './NavBar';
@@ -252,7 +252,7 @@ const closeCommentModal = () => {
  <div>
         {isMypost&&<div className='frame1'>
         <div className='post-top'>
-        {pic?<img src={'http://localhost:8000'+pic} alt="Profile" />:<FontAwesomeIcon icon={faUser} className="text-black" />}
+        {pic?<img src={base+pic} alt="Profile" />:<FontAwesomeIcon icon={faUser} className="text-black" />}
 
           <span className='profile_name'>{username.username}</span>
           <span className='timestamp'>Now</span>

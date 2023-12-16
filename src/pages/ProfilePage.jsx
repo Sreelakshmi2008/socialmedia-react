@@ -3,7 +3,7 @@
 
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { baseUrl, user,changeprofile,editprofile } from '../utils/constants';
+import { baseUrl,base, user,changeprofile,editprofile } from '../utils/constants';
 import { Link, useNavigate } from "react-router-dom";
 import NavBar from '../components/NavBar';
 import SideBar from '../components/Sidebar';
@@ -200,7 +200,7 @@ function Profile() {
                   {userName.profile_pic ? (
                     <img
                       className='rounded-circle w-32 h-32 object-cover border-4 border-white mx-auto mb-4'
-                      src={'http://localhost:8000'+userName.profile_pic}
+                      src={base+userName.profile_pic}
                       alt="User Profile"
                       style={{ width: '100px', height: '100px', marginTop: '5%' }}
                       onMouseOver={(e)=>{e.currentTarget.style.opacity='.5',e.currentTarget.style.cursor='pointer'}}

@@ -1,5 +1,5 @@
 import './SideBar.css';
-import { baseUrl} from '../utils/constants';
+import { base, baseUrl} from '../utils/constants';
 import { Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch,faUser,faPhotoFilm, faBookmark, faPeopleGroup, faEnvelope, faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
@@ -20,7 +20,7 @@ function SideBar({pic,post,user}){
         <div className="box2">
             <div className='myprofile'>
                 
-            {pic?<img src={'http://localhost:8000' + pic} alt="Profile" />:<FontAwesomeIcon icon={faUser} className="text-black" />}
+            {pic?<img src={base + pic} alt="Profile" />:<FontAwesomeIcon icon={faUser} className="text-black" />}
                             <Link className="myprofile_text" to='/profile'>My Profile</Link>
             </div>
             <div className='myposts'>

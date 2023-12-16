@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { toast } from "react-toastify";
 import createCommentApi from "../api/createCommentApi";
-import {  baseUrl } from "../utils/constants";
+import {  base, baseUrl } from "../utils/constants";
 import { RiDeleteBin6Line } from "react-icons/ri";
 // import { AiOutlineSend } from "react-icons/ai";
 import CommentDeleteApi from "../api/CommentDeleteApi";
@@ -128,7 +128,7 @@ const CommentModal = ({ isOpen, onRequestClose, postId ,user}) => {
             <div style={{display:'flex'}}>
                 {comment.user.profile_pic?
           <img
-            src={'http://localhost:8000'+comment.user.profile_pic}
+            src={base+comment.user.profile_pic}
             alt={comment.user.username}
             style={{width:'35px',height:'35px',borderRadius:'50%'}}
           />:<FontAwesomeIcon icon={faUser}             style={{width:'25px',height:'25px',borderRadius:'50%'}}
