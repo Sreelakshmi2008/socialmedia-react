@@ -144,7 +144,7 @@ const CommentModal = ({ isOpen, onRequestClose, postId ,user}) => {
 
           {hoveredCommentId === comment.id &&
             comment.user.id === user.id && (
-<button onClick={() => {console.log('Button clicked'),handleDeleteComment(comment.id)}}>Delete Comment</button>
+<button onClick={() => {console.log('Button clicked',comment.id),handleDeleteComment(comment.id)}}>Delete Comment</button>
 
             )}
         </div>

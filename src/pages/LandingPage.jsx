@@ -118,7 +118,8 @@ function Landing(){
                       </span>
                                            
                   </div>
-                  <div className='google-button'>        
+                  <div className='google-button'>  
+                        
                         <GoogleLogin clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID} 
                         onSuccess={onGoogleLoginSuccess}
                         onFailure={onGoogleLoginFailure} />
