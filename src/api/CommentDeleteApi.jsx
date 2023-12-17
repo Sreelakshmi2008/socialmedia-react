@@ -4,7 +4,7 @@ const CommentDeleteApi = async (id) => {
     try {
       console.log("Deleting comment with id:", id);
   
-      const response = await axiosInstance.delete(`${baseUrl}posts/deletepost/${id}/`);
+      const response = await axiosInstance.delete(`${baseUrl}posts/deletecomment/${id}/`);
   
       console.log("Delete comment response:", response);
   

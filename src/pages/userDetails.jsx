@@ -2,7 +2,7 @@ import AdminNav from "../components/AdminNav"
 import AdminSide from "../components/AdminSide"
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { baseUrl, userdetail,deleteuser,blockuser} from '../utils/constants';
+import { baseUrl, userdetail,deleteuser,blockuser, base} from '../utils/constants';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate, useParams,Link   } from "react-router-dom";
 import Swal from "sweetalert2";
@@ -117,7 +117,7 @@ function UserDetail(props){
                 overflowX: 'auto',
             }}>
              <div className='user_profile'>
-                {users.profile_pic?<img src={baseUrl + users.profile_pic} alt="profile" style={{
+                {users.profile_pic?<img src={base + users.profile_pic} alt="profile" style={{
                     width: '50px',
                     height: '50px',
                     borderRadius: '50%',

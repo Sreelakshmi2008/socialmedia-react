@@ -54,7 +54,7 @@ const CommentModal = ({ isOpen, onRequestClose, postId ,user}) => {
   
         // Ensure that `id` is defined when making the DELETE request
         await CommentDeleteApi(id);
-  
+         
         toast.success("comment Deleted Successfully!", {
           position: "top-center",
         });
@@ -144,7 +144,7 @@ const CommentModal = ({ isOpen, onRequestClose, postId ,user}) => {
 
           {hoveredCommentId === comment.id &&
             comment.user.id === user.id && (
-<button onClick={() => {console.log('Button clicked',comment.id),handleDeleteComment(comment.id)}}>Delete Comment</button>
+<button onClick={() => {setTrigger(true),handleDeleteComment(comment.id)}}>Delete Comment</button>
 
             )}
         </div>

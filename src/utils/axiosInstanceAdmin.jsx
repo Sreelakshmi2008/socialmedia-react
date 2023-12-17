@@ -31,7 +31,7 @@ axiosInstanceAdmin.interceptors.response.use(
           const refreshToken = localStorage.getItem('refreshjwtTokenAdmin');
           console.log('Refreshing token:', refreshToken);
   
-          const refreshResponse = await axiosInstanceAdmin.post(baseUrl + refresh, {
+          const refreshResponse = await axios.post(baseUrl + refresh, {
             refresh: refreshToken,
           });
   

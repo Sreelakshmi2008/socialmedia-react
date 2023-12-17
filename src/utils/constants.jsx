@@ -1,7 +1,7 @@
-// export const baseUrl = "http://localhost:8000/";
-export const baseUrl = "http://13.234.32.244/";
-export const base = "http://13.234.32.244";
-// export const base = "http://localhost:8000";
+export const baseUrl = "http://localhost:8000/";
+// export const baseUrl = "http://13.234.32.244/";
+// export const base = "http://13.234.32.244";
+export const base = "http://localhost:8000";
 
 
 export const login = "api/login"; 
@@ -24,6 +24,8 @@ export const deletepost = "posts/deletepost";
 export const recommended = "posts/recommended";
 export const likecount = "posts/likecount";
 export const contacts = "posts/contacts";
+export const deletecomment = "posts/deletecomment";
+
 
 
 

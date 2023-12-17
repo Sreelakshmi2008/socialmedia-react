@@ -42,7 +42,18 @@ function AdminUserPosts(props){
     
 
 
-    
+      // Function to format date using Intl.DateTimeFormat
+      const formatCreatedAt = (createdAt) => {
+        return new Intl.DateTimeFormat('en-IN', {
+            day: 'numeric',
+            month: 'numeric',
+            year: 'numeric',
+            hour: 'numeric',
+            minute: 'numeric',
+            second: 'numeric',
+            hour12: false,
+        }).format(new Date(createdAt));
+    };
     return(
         <div>
             <AdminSide/>
@@ -76,7 +87,7 @@ function AdminUserPosts(props){
                 onMouseOut={(e) => (e.currentTarget.style.color = 'blue')}
                 onClick={()=>handlePostDetails(p.id)}
               >
-                {p.caption}---{p.created_at}
+                {p.caption}---{formatCreatedAt(p.created_at)}
               </span>
            
           </li>
