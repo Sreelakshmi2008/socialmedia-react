@@ -87,7 +87,7 @@ const Chat = () => {
       const websocketProtocol =
         window.location.protocol === "https:" ? "wss://" : "ws://";
         
-      const wsUrl = `${websocketProtocol}//${baseUrl}ws/chat/${data.id}/?token=${accessToken}`;
+      const wsUrl = `${websocketProtocol}//backend.my-media.online/ws/chat/${data.id}/?token=${accessToken}`;
       // const wsUrl = `${websocketProtocol}theghostkart.shop:8001/ws/chat/${data.id}/?token=${accessToken}`;
       
 
@@ -167,7 +167,7 @@ const Chat = () => {
                       {profile.profile_pic?     
                       
                           <img
-                        src={{base} + profile.profile_pic }
+                        src={base + profile.profile_pic }
                         alt="Profile"
                         style={{width:'35px',height:'35px',borderRadius:'50%'}}
                         className="rounded-full object-cover"
@@ -225,7 +225,7 @@ const Chat = () => {
                       {console.log(message,"single message")}
 
                       <img
-                        src={{base} + (message.sender_profile_pic || message.profile_pic)}
+                        src={base + (message.sender_profile_pic || message.profile_pic)}
                         alt="Profile"
                         className="w-full h-full rounded-full object-cover"
                         style={{width:'35px',height:'35px',borderRadius:'50%'}}
