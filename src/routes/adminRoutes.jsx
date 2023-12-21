@@ -6,7 +6,8 @@ import AdminUserPosts from "../pages/AdminUserPosts";
 import AdminUserPostsDetails from "../pages/AdminUserPostDetails";
 import {PrivateRoutesAdmin} from "../components/PrivateComponent"
 import AdminPosts from "../pages/AdminPosts";
-
+import NotFoundPage from "../components/404Page";
+import BarChart from "../pages/AdminChart";
 function AdminRouter(){
     
    
@@ -17,13 +18,17 @@ function AdminRouter(){
 
     <Routes>
       <Route path='/' element={<AdminLogin/>}/>
+      
       <Route element={<PrivateRoutesAdmin />}>
                 <Route path='/admindash' element={<AdminDash/>}/>
                 <Route path='/admin_user/:userEmail' element={<UserDetail/>}/>
                 <Route path='/admin_user_posts/:userEmail' element={<AdminUserPosts/>}/>
                 <Route path='/admin_user_posts_details/:id' element={<AdminUserPostsDetails/>}/>
                 <Route path='/posts' element={<AdminPosts/>}/>
+                <Route path='/chart' element={<BarChart/>}/>
                 {/* <Route path='/comment_by_post' element={<AdminComment/>}/> */}
+                
+
 
 
      </Route>

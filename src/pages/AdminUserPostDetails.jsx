@@ -154,6 +154,11 @@ const handleDeleteComment = async (id) => {
                                 <span style={{ marginRight: '10px' }}>: </span>
                                 <span style={{ whiteSpace: 'nowrap' }}>{formatCreatedAt(post[0].created_at)}</span>
                             </li>
+                            <li style={{ marginBottom: '10px', display: 'flex', alignItems: 'center' }}>
+                                <span style={{ width: '210px', marginRight: '10px' }}>Likes</span>
+                                <span style={{ marginRight: '10px' }}>: </span>
+                                <span style={{ whiteSpace: 'nowrap' }}>{post[0].like_count}</span>
+                            </li>
                             {post[0].post_media && Array.isArray(post[0].post_media) && post[0].post_media.map((p, index) => (
                                 <li style={{ marginBottom: '10px', display: 'flex', alignItems: 'center' }} key={index}>
                                     <img src={p.media_file} alt={`Media ${index}`} style={{ width: '10rem' }} />

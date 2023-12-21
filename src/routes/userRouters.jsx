@@ -10,6 +10,7 @@ import Chat from "../components/chatting";
 import NotFoundPage from "../components/404Page";
 import FollowersList from "../pages/FollowersList";
 import FollowingListPage from "../pages/FollowingsList";
+import UserSavedPosts from "../pages/UserSavedPost";
 function UserRouter() {
   return (
     <Routes>
@@ -25,6 +26,8 @@ function UserRouter() {
                 <Route element={<FollowingListPage/>} path="/followings"/>
 
                 <Route path='/myposts' element={<MyPosts />} />
+                <Route path='/user-saved-posts' element={<UserSavedPosts />} />
+
      </Route>
     </Routes>
   );

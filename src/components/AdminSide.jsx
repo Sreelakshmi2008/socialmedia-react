@@ -11,7 +11,7 @@ function AdminSide(){
             <h1 className="admin_side_title_txt">Admin</h1>
           
             <ul>
-                    <li className="admin_dash_link">Dashboard</li>
+                    {/* <li className="admin_user"><Link to='/admin/chart' className='admin_user_link'>Dashboard</Link></li> */}
                     <li className="admin_user"><Link to='/admin/admindash' className='admin_user_link'>Users</Link></li>
                     <li className="admin_user"><Link to='/admin/posts' className='admin_user_link'>Posts</Link></li>
 

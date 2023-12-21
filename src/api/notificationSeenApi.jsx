@@ -1,15 +1,14 @@
 import axiosInstance from "../utils/axiosInstance";
 import { baseUrl } from "../utils/constants";
 
-const getUnseenChatsApi = async () => {
+const getNotificationsApi = async () => {
     try {
-      
-        const response = await axiosInstance.get(`${baseUrl}chat/unseen/`, {
+        
+        const response = await axiosInstance.get(`${baseUrl}posts/notifications/`, {
           headers: {
             Accept: 'application/json',
             'Content-Type': 'application/json',
-         
-          },
+          }
         });
         if  (response.status === 200) {
             return response.data;
@@ -22,4 +21,7 @@ const getUnseenChatsApi = async () => {
     }
   };
 
-export default getUnseenChatsApi
+export default getNotificationsApi
+
+
+

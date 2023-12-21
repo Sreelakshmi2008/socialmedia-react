@@ -14,7 +14,7 @@ const FollowUnfollowApi = async (userId, fetchData) => {
             if (fetchData) {
                 fetchData();
             }
-            console.log(response.data,"response data")
+            console.log(response,"response data")
             return response.data;
             
         } else {

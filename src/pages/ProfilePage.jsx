@@ -19,6 +19,7 @@ import Form from 'react-bootstrap/Form';
 import ReactBootstrapModal from 'react-bootstrap/Modal';
 import './loader.css'
 import { Loader,Placeholder} from 'rsuite';
+import ChangePassModal from '../components/ChangePassModal';
 
 
 
@@ -181,6 +182,18 @@ function Profile() {
       }
     };
      
+    // change password click 
+    const [open,setOpen] = useState(false)
+   
+  const handlePasswordChangeSuccess = () => {
+    setOpen(false); // Close the modal when password change is successful
+  };
+   const  handleOpen = ()=>{
+    setOpen(true)
+   }
+   const  handleClose = ()=>{
+    setOpen(false)
+   }
   return (
     
     <>
@@ -237,7 +250,7 @@ function Profile() {
         <div className='flex buttons-container'>
           <button className='btn edit-profile-btn' onClick={handleEditProfileClicked}>Edit Profile</button>
   
-          <button className='btn change-pass-btn'>Change Password</button>
+          <button className='btn change-pass-btn' onClick={handleOpen}>Change Password</button>
         </div>
 
                 </div>
@@ -384,6 +397,8 @@ function Profile() {
         </ReactBootstrapModal.Footer>
       </ReactBootstrapModal>
       
+
+      {open && <ChangePassModal isOpen={open} onRequestClose={handleClose} user={userName}   onPasswordChangeSuccess={handlePasswordChangeSuccess}/>}
     </>
   );
 }

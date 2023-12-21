@@ -62,26 +62,73 @@ const navigate=useNavigate()
     }
   }
   const [postlike,setLike] = useState(JSON.parse(localStorage.getItem('postlike')) || {});
-
+  
   const handleLike = async (id) => {
     try {
-      console.log(id, "post id");
       const likeresponse = await axiosInstance.post(baseUrl + like, { id: id });
       console.log(likeresponse);
-  
-      const updatedLikeState = {
-        ...postlike,
-        [id]: {
-          liked: likeresponse.data.message === 'You have liked this post',
-          likecount: likeresponse.data.like_count,
-        },
-      };
-      setLike(updatedLikeState);
-      localStorage.setItem('postlike', JSON.stringify(updatedLikeState));
+
+      const updatedUserPosts = userposts.map((post) => {
+        if (post.id === id) {
+          return {
+            ...post,
+            is_liked_or_not: likeresponse.data.message === 'You have liked this post',
+            like_count: likeresponse.data.like_count,
+          };
+        }
+        return post;
+      });
+
+      setUserPosts(updatedUserPosts);
+      localStorage.setItem('postlike', JSON.stringify(updatedUserPosts));
     } catch (error) {
       console.error('Error handling like:', error);
     }
   };
+
+
+
+  const handleSavedPost = async (id) => {
+    try {
+      const savedresponse = await axiosInstance.post(`${baseUrl}posts/savepost`, { id: id });
+      console.log(savedresponse);
+  
+      if (savedresponse.status === 201) {
+        const updatedUserPosts = userposts.map((post) => {
+          if (post.id === id) {
+            return {
+              ...post,
+              saved_or_not: true,
+            };
+          }
+          return post;
+        });
+  
+        setUserPosts(updatedUserPosts);
+        
+      } else {
+        const updatedUserPosts = userposts.map((post) => {
+          if (post.id === id) {
+            return {
+              ...post,
+              saved_or_not: false,
+            };
+            
+          }
+         
+          return post;
+        });
+  
+        setUserPosts(updatedUserPosts);
+        navigate('/homepage')
+      }
+    } catch (error) {
+      console.error('Error handling save/unsave:', error);
+    }
+  };
+  
+
+
   const handleDeletepost = async (id) => {
     try {
       const response = await axiosInstance.delete(`${baseUrl}${deletepost}/${id}/`);
@@ -207,23 +254,36 @@ const handleCreatePost = async () => {
 const [userfollow,setuserfollow] = useState({})
 const handleFollowUnfollow = async (userId) => {
   try {
-    const followresponse =await FollowUnfollowApi(userId);
-   
-      const updatedFollowState = {
-        ...userfollow,
-        [userId]: {
-          follow: followresponse.detail === 'You are now following this user.',
-          
-        },
-      };
-     
-    setuserfollow(updatedFollowState)
-    
-    
-    setTrigger(false);
-  } catch(e){
-    console.log(e)
-    console.log("follow/unfollow got error");
+    const followresponse = await FollowUnfollowApi(userId);
+    if (followresponse.detail === "You are now following this user.") {
+      const updatedUserPosts = userposts.map((post) => {
+        if (post.user.id === userId) { // Fix: use userId here
+          return {
+            ...post,
+            is_following_author: true,
+          };
+        }
+        return post;
+      });
+
+      setUserPosts(updatedUserPosts);
+    } else {
+      const updatedUserPosts = userposts.map((post) => {
+        if (post.user.id === userId) { // Fix: use userId here
+          return {
+            ...post,
+            is_following_author: false,
+          };
+        }
+
+        return post;
+      });
+
+      setUserPosts(updatedUserPosts);
+    }
+  } catch (e) {
+    console.log(e);
+    console.log("follow/unfollow got an error");
   }
 };
 
@@ -276,13 +336,13 @@ const closeCommentModal = () => {
                   }}
                   className= "follow-btn "
                   style={{
-                    color: userfollow[post.user.id]?.follow ? "red" : "blue",
+                    color: post.is_following_author? "red" : "blue",
                   }}
                    
 
                   
                 >{console.log(userfollow,"user folow")}
-                  { userfollow[post.user.id]?.follow ? "Unfollow" : "Follow"}
+                  { post.is_following_author? "Unfollow" : "Follow"}
                 </button>
 }
               
@@ -290,7 +350,7 @@ const closeCommentModal = () => {
           </div>
           <div className='postmedias'>
             <Slider {...sliderSettings}>
-              {post.post_media.map((media,index) => (
+              {post.post_media&&post.post_media.map((media,index) => (
                 <div key={index}>
                   {console.log(media.media)}
                {media.media_file && (
@@ -300,12 +360,12 @@ const closeCommentModal = () => {
             </Slider>
 
             <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-  {post.hashtags.map((hash, index) => (
-    <h3 key={index} style={{ margin: '0', marginRight: '5px' }}>
-      #{hash.hashtag}
-    </h3>
-  ))}
-</div>
+              {post.hashtags&&post.hashtags.map((hash, index) => (
+                <h3 key={index} style={{ margin: '0', marginRight: '5px' }}>
+                  #{hash.hashtag}
+                </h3>
+              ))}
+            </div>
 
             <h3>{post.caption}</h3>
             
@@ -313,12 +373,12 @@ const closeCommentModal = () => {
           <div className='flex items-center justify-between mt-1'>
         <div className='post-actions'>
           <div className='like-btn' onClick={() => handleLike(post.id)}>
-          <FontAwesomeIcon icon={faHeart} color={postlike[post.id]?.liked ? 'red' : 'black'} />
-                  <span className='ml-1'>{postlike[post.id]?.likecount}</span>
+          <FontAwesomeIcon icon={faHeart} color={post.is_liked_or_not?'red' : 'black'} />
+                  <span className='ml-1'>{post.like_count}</span>
 
           </div>
-          <div className='save-btn ml-4'>
-            <FontAwesomeIcon icon={faBookmark} />
+          <div className='save-btn ml-4' onClick={() => handleSavedPost(post.id)}>{console.log(post.saved_or_not,"saved or not")}
+            <FontAwesomeIcon icon={faBookmark} color={post.saved_or_not?'blue' : 'black'}/>
           </div>
           <div className='share-btn ml-4' onClick={() => openCommentModal(post.id)}>
                     <FontAwesomeIcon icon={faComment} />

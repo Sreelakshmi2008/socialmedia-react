@@ -112,7 +112,7 @@ function Landing(){
                           <button className='login btn pt-1' type='submit'>Login</button>
                       </form>
 
-                      <a className='forgot' href="#">Forgot password???</a>
+                      {/* <a className='forgot' href="#">Forgot password???</a> */}
                       <span className='text'>If you dont have one, create your account here........
                           <Link to="/register" className='link'>signup</Link>
                       </span>

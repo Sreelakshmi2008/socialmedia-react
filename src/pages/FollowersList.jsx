@@ -99,59 +99,64 @@ const handleFollowUnfollow = async (userId) => {
       <>
         <NavBar username={userName.username} pic={userName.profile_pic} />
         <SideBar pic={userName.profile_pic} post={userposts} />
+        {filteredFollowing.length > 0?(
+          <>
         <h2 className="mt-4" style={{marginLeft:'25%'}}>Followers</h2>
         <div className='div-table-followings'>
- 
-  <table className="border-collapse bg-slate-500 shadow-md table-followings" style={{ width: '70%'}}>
-    <tbody>
-      {filteredFollowing.map((followingUser) => (
-        <tr key={followingUser.id}>
-          <td style={{ paddingLeft: '100px', paddingRight: '10px',width:'80px'}}className='py-4'> 
-            {followingUser.follower.profile_pic ? (
-              <img
-                src={followingUser.follower.profile_pic}
-                alt={`${followingUser.follower.username}'s profile`}
-                style={{ width: '39px', height: '39px', borderRadius: '50%' }}
-                onClick={() => navigateToAuthorProfile(followingUser.follower.id)}
-              />
-            ) : (
-              <FontAwesomeIcon
-                icon={faUser}
-                style={{
-                  width: '30px',
-                  height: '30px',
-                  borderRadius: '50%',
-                  border: '1px solid black',
-                  padding: '5px',
-                }}
-              />
-            )}
-          </td>
-          <td className="py-4" onClick={() => navigateToAuthorProfile(followingUser.follower.id)}>
-            {followingUser.follower.username}
-          </td>
-          <td className="py-4"
-          style={{paddingLeft:'300px'}}> {/* Increase paddingRight */}
-           <button 
-                  onClick={() => {
-                    handleFollowUnfollow(followingUser.follower.id)
-                  }}
-                  style={{
-                   
-                 backgroundColor:'white',border:'2px solid black',borderRadius:'10px',padding:'auto'}}
-                  onMouseOver={(e)=>{e.currentTarget.style.backgroundColor='#D15A5A',e.currentTarget.style.color='black'}}
-                  onMouseOut={(e)=>{e.currentTarget.style.backgroundColor='white',e.currentTarget.style.color=userfollow[followingUser.follower.id]?.follow ? "#D15A5A" : "blue"}}
-                   >
-                   
-                  { userfollow[followingUser.follower.id]?.follow ?  'UnFollow' : 'Follow Back'}
-            </button>
+            <table className="border-collapse bg-slate-500 shadow-md table-followings" style={{ width: '70%'}}>
+              <tbody>
+                {filteredFollowing.map((followingUser) => (
+                  <tr key={followingUser.id}>
+                    <td style={{ paddingLeft: '100px', paddingRight: '10px',width:'80px'}}className='py-4'> 
+                      {followingUser.follower.profile_pic ? (
+                        <img
+                          src={followingUser.follower.profile_pic}
+                          alt={`${followingUser.follower.username}'s profile`}
+                          style={{ width: '39px', height: '39px', borderRadius: '50%' }}
+                          onClick={() => navigateToAuthorProfile(followingUser.follower.id)}
+                        />
+                      ) : (
+                        <FontAwesomeIcon
+                          icon={faUser}
+                          style={{
+                            width: '30px',
+                            height: '30px',
+                            borderRadius: '50%',
+                            border: '1px solid black',
+                            padding: '5px',
+                          }}
+                        />
+                      )}
+                    </td>
+                    <td className="py-4" onClick={() => navigateToAuthorProfile(followingUser.follower.id)}>
+                      {followingUser.follower.username}
+                    </td>
+                    <td className="py-4"
+                    style={{paddingLeft:'300px'}}> {/* Increase paddingRight */}
+                    <button 
+                            onClick={() => {
+                              handleFollowUnfollow(followingUser.follower.id)
+                            }}
+                            style={{
+                            
+                          backgroundColor:'white',border:'2px solid black',borderRadius:'10px',padding:'auto'}}
+                            onMouseOver={(e)=>{e.currentTarget.style.backgroundColor='#D15A5A',e.currentTarget.style.color='black'}}
+                            onMouseOut={(e)=>{e.currentTarget.style.backgroundColor='white',e.currentTarget.style.color=userfollow[followingUser.follower.id]?.follow ? "#D15A5A" : "blue"}}
+                            >
+                            
+                            { userfollow[followingUser.follower.id]?.follow ?  'UnFollow' : 'Follow Back'}
+                      </button>
 
-          </td>
-        </tr>
-      ))}
-    </tbody>
-  </table>
-</div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody> 
+            </table>
+        </div>
+        </>):
+        (<h2 style={{marginLeft:'45%',marginTop:'15%'}}>No Followers </h2>)
+        }
+
 
 
 

@@ -102,8 +102,10 @@ const handleFollowUnfollow = async (userId) => {
       <>
         <NavBar username={userName.username} pic={userName.profile_pic} />
         <SideBar pic={userName.profile_pic} post={userposts} />
+        {filteredFollowing.length>0?
+        (<>
         <h2 className="mt-4" style={{marginLeft:'25%'}}>Followings</h2>
-        <div className='div-table-followings'>
+         <div className='div-table-followings'>
  
   <table className="border-collapse bg-slate-500 shadow-md table-followings" style={{ width: '70%'}}>
     <tbody>
@@ -150,7 +152,9 @@ const handleFollowUnfollow = async (userId) => {
       ))}
     </tbody>
   </table>
-</div>
+         </div>
+         </>):
+         (<h2 style={{marginLeft:'45%',marginTop:'15%'}}>No Followings </h2>)}
 
 
 

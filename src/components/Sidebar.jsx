@@ -29,7 +29,7 @@ function SideBar({pic,post,user}){
             </div>
             <div className='savedpost'>
             <FontAwesomeIcon icon={faBookmark} style={{color: "#000000",}} />
-                <span className="savedpost_text">Saved Posts</span>
+                <Link className="savedpost_text" to='/user-saved-posts'>Saved Posts</Link>
             </div>
             <div className='followers'>
             <FontAwesomeIcon icon={faPeopleGroup} style={{color: "#000000",}} />
