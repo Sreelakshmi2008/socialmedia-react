@@ -1,6 +1,6 @@
 // export const baseUrl = "http://localhost:8000/";
-export const baseUrl = "http://65.0.101.86/";
-export const base = "http://65.0.101.86";
+export const baseUrl = "https://my-media.online";
+export const base = "https://my-media.online";
 // export const base = "http://localhost:8000";
 
 
