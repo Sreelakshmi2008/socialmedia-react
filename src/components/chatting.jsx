@@ -225,7 +225,7 @@ const Chat = () => {
                       {console.log(message,"single message")}
 
                       <img
-                        src={base + (message.sender_profile_pic || message.profile_pic)}
+                        src={{base} + (message.sender_profile_pic || message.profile_pic)}
                         alt="Profile"
                         className="w-full h-full rounded-full object-cover"
                         style={{width:'35px',height:'35px',borderRadius:'50%'}}
