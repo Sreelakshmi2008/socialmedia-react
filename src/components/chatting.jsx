@@ -3,7 +3,7 @@ import ContactListAPI from "../api/ContactListApi";
 import CreateChatRoomAPI from "../api/CreateChatRoomApi";
 import GetChatMessages from "../api/GetMessageApi";
 import MessageSeenAPI from "../api/MessageSeenApi";
-import { baseUrl,user,base } from "../utils/constants";
+import { baseUrl,user } from "../utils/constants";
 import { Navigate } from "react-router-dom";
 import axiosInstance from "../utils/axiosInstance";
 import './Chatting.css'
@@ -87,7 +87,7 @@ const Chat = () => {
       const websocketProtocol =
         window.location.protocol === "https:" ? "wss://" : "ws://";
         
-      const wsUrl = `${websocketProtocol}//backend.my-media.online/ws/chat/${data.id}/?token=${accessToken}`;
+      const wsUrl = `${websocketProtocol}//127.0.0.1:8000/ws/chat/${data.id}/?token=${accessToken}`;
       // const wsUrl = `${websocketProtocol}theghostkart.shop:8001/ws/chat/${data.id}/?token=${accessToken}`;
       
 
@@ -167,7 +167,7 @@ const Chat = () => {
                       {profile.profile_pic?     
                       
                           <img
-                        src={base + profile.profile_pic }
+                        src={'http://127.0.0.1:8000' + profile.profile_pic }
                         alt="Profile"
                         style={{width:'35px',height:'35px',borderRadius:'50%'}}
                         className="rounded-full object-cover"
@@ -225,7 +225,7 @@ const Chat = () => {
                       {console.log(message,"single message")}
 
                       <img
-                        src={base + (message.sender_profile_pic || message.profile_pic)}
+                        src={'http://127.0.0.1:8000' + (message.sender_profile_pic || message.profile_pic)}
                         alt="Profile"
                         className="w-full h-full rounded-full object-cover"
                         style={{width:'35px',height:'35px',borderRadius:'50%'}}

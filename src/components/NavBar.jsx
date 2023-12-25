@@ -48,7 +48,7 @@ function NavBar({ username,pic}) {
         console.log("notification websocket calling")
         const websocketProtocol =
           window.location.protocol === "https:" ? "wss://" : "ws://";
-        const socket = new WebSocket(`${websocketProtocol}//backend.my-media.online/ws/notification/?token=${token}`);
+        const socket = new WebSocket(`${websocketProtocol}//127.0.0.1:8000/ws/notification/?token=${token}`);
         // const socket = new WebSocket(
         //   `${websocketProtocol}13.49.68.219/ws/notification/?token=${token}`
         // );
@@ -69,9 +69,8 @@ function NavBar({ username,pic}) {
           }
         };
         socket.onerror = (error) => {
-          console.error("WebSocket error:", error);
-        };
-        
+  console.error("WebSocket error:", error);
+};
         socket.onclose = (event) => {
           console.log("WebSocket connection closed", event);
         };
