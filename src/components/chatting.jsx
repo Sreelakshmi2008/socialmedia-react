@@ -87,8 +87,8 @@ const Chat = () => {
       const websocketProtocol =
         window.location.protocol === "https:" ? "wss://" : "ws://";
         
-      const wsUrl = `${websocketProtocol}//back.my-media.online/ws/chat/${data.id}/?token=${accessToken}`;
-      // const wsUrl = `${websocketProtocol}theghostkart.shop:8001/ws/chat/${data.id}/?token=${accessToken}`;
+      // const wsUrl = `${websocketProtocol}//127.0.0.1:8000/ws/chat/${data.id}/?token=${accessToken}`;
+      const wsUrl = `${websocketProtocol}back.my-media.online:8001/ws/chat/${data.id}/?token=${accessToken}`;
       
 
       const newChatWs = new WebSocket(wsUrl);
