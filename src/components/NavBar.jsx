@@ -48,7 +48,7 @@ function NavBar({ username,pic}) {
         console.log("notification websocket calling")
         const websocketProtocol =
           window.location.protocol === "https:" ? "wss://" : "ws://";
-        const socket = new WebSocket(`${websocketProtocol}//127.0.0.1:8000/ws/notification/?token=${token}`);
+        const socket = new WebSocket(`${websocketProtocol}//back.my-media.online/ws/notification/?token=${token}`);
         // const socket = new WebSocket(
         //   `${websocketProtocol}13.49.68.219/ws/notification/?token=${token}`
         // );
