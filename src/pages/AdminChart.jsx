@@ -11,6 +11,9 @@ import {CategoryScale} from 'chart.js';
 import { Chart, registerables } from 'chart.js';
 import axiosInstanceAdmin from '../utils/axiosInstanceAdmin';
 import { baseUrl } from '../utils/constants';
+import AdminNav from '../components/AdminNav';
+import AdminSide from '../components/AdminSide';
+
 Chart.register(...registerables);
 
 ChartJS.register(
@@ -29,7 +32,7 @@ const BarChart = () => {
       setLoading(true);
       try {
        
-        const response = await axiosInstanceAdmin.get(`${baseUrl}api/joining-month-count/`);
+        const response = await axiosInstanceAdmin.get(`${baseUrl}myadmin/graph`);
         if (response.status === 200) {
           setChartData(response.data);
         }
@@ -52,34 +55,48 @@ const BarChart = () => {
       label: 'User Count',
       data: chartData.map((item) => item.user_count),
       backgroundColor: 'rgba(255, 99, 132, 0.2)',
-      borderColor: 'rgba(153, 102, 255, 1)', // Purple color for the line
+      borderColor: 'rgba(153, 102, 255, 1)',  
       borderWidth: 2,
     }]
   };
 
   var options = {
     maintainAspectRatio: false,
-    scales: {
-    },
+    scales: {},
     legend: {
       labels: {
         fontSize: 25,
       },
     },
-  }
-
+    responsive: true, 
+    maintainAspectRatio: false,
+   
+    plugins: {
+      legend: {
+        position: 'top', 
+      },
+    },
+  };
   return (
-    <div className="min-h-screen bg-gradient-to-br from-violet-400 via-white to-violet-400 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-6">
-        <h2 className="text-2xl font-semibold mb-4">User Joining Month Statistics</h2>
-        {loading ? (
+    <div>
+    <AdminSide/>
+    <AdminNav/>
+   
+    
+      
+       
+        {loading ?
+         (
           <p className="text-center">Loading...</p>
         ) : (
-          <div className="bg-white p-4 rounded-lg shadow">
+          <div>
+          <h3 style={{marginLeft:'30%',marginTop:'4%'}}>User Joining Month Statistics</h3>
+          <div className="bg-white p-5 rounded-lg" style={{ maxWidth: '600px', margin: 'auto',border:'2px solid #D0D4D5' }}>
             <Line data={data} height={400} options={options} />
           </div>
+          </div>
         )}
-      </div>
+  
     </div>
   )
 }

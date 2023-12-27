@@ -1,7 +1,7 @@
-// export const baseUrl = "http://localhost:8000/";
-export const baseUrl = "https://back.my-media.online/";
-export const base = "https://back.my-media.online";
-// export const base = "http://localhost:8000";
+export const baseUrl = "http://localhost:8000/";
+// export const baseUrl = "https://back.my-media.online/";
+// export const base = "https://back.my-media.online";
+export const base = "http://localhost:8000";
 
 
 export const login = "api/login"; 
