@@ -309,7 +309,7 @@ const closeCommentModal = () => {
  <div>
         {isMypost&&<div className='frame1'>
         <div className='post-top'>
-        {pic?<img src={base+pic} alt="Profile" />:<FontAwesomeIcon icon={faUser} className="text-black" />}
+        {pic?<img src={pic} alt="Profile" />:<FontAwesomeIcon icon={faUser} className="text-black" />}
 
           <span className='profile_name'>{username.username}</span>
           <span className='timestamp'>Now</span>
