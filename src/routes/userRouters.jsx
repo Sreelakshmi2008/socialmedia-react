@@ -3,7 +3,6 @@ import Landing from "../pages/LandingPage";
 import SignUp from "../pages/SignUpPage";
 import Home from "../pages/HomePage";
 import Profile from "../pages/ProfilePage";
-import CreatePost from "../pages/CreatePost";
 import MyPosts from "../pages/MyPosts";
 import {PrivateRoutes} from "../components/PrivateComponent";
 import Chat from "../components/chatting";
@@ -11,12 +10,13 @@ import NotFoundPage from "../components/404Page";
 import FollowersList from "../pages/FollowersList";
 import FollowingListPage from "../pages/FollowingsList";
 import UserSavedPosts from "../pages/UserSavedPost";
+import ProfileOfOthers from "../components/ProfileOfOthers";
 function UserRouter() {
   return (
     <Routes>
       <Route path='/' element={<Landing />} />
       <Route path='/register' element={<SignUp />} />
-      <Route path='/chat' element={<Chat />} />
+    
       <Route path='*' element={<NotFoundPage/>} />
 
       <Route element={<PrivateRoutes />}>
@@ -27,6 +27,8 @@ function UserRouter() {
 
                 <Route path='/myposts' element={<MyPosts />} />
                 <Route path='/user-saved-posts' element={<UserSavedPosts />} />
+                <Route path='/chat' element={<Chat />} />
+                <Route path="/authors/:id" element={<ProfileOfOthers/>} />
 
      </Route>
     </Routes>

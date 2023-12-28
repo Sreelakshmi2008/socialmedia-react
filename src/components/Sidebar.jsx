@@ -20,7 +20,7 @@ function SideBar({pic,post,user}){
         <div className="box2">
             <div className='myprofile'>
                 
-            {pic?<img src={base + pic} alt="Profile" />:<FontAwesomeIcon icon={faUser} className="text-black" />}
+            {pic?<img src={pic} alt="Profile" />:<FontAwesomeIcon icon={faUser} className="text-black" />}
                             <Link className="myprofile_text" to='/profile'>My Profile</Link>
             </div>
             <div className='myposts'>

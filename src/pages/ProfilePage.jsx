@@ -213,7 +213,7 @@ function Profile() {
                   {userName.profile_pic ? (
                     <img
                       className='rounded-circle w-32 h-32 object-cover border-4 border-white mx-auto mb-4'
-                      src={base+userName.profile_pic}
+                      src={userName.profile_pic}
                       alt="User Profile"
                       style={{ width: '100px', height: '100px', marginTop: '5%' }}
                       onMouseOver={(e)=>{e.currentTarget.style.opacity='.5',e.currentTarget.style.cursor='pointer'}}
@@ -228,22 +228,22 @@ function Profile() {
                   <div className='text-gray-600 mb-2 follow-stats'>
           <div>
             <p className='font-bold'>Followers</p>
-            <p className='text-xl'>100</p>
+            <p className='text-xl'>{userName.followers_count}</p>
           </div>
           <div>
             <p className='font-bold'>Following</p>
-            <p className='text-xl'>100</p>
+            <p className='text-xl'>{userName.followings_count}</p>
           </div>
           <div>
             <p className='font-bold'>Posts</p>
-            <p className='text-xl'>100</p>
+            <p className='text-xl'>{userName.posts_count}</p>
           </div>
         </div>
 
         <div className='text-gray-600 mb-2'>
           <p>Email: {userName.email}</p>
-          <p>Phone Number: {userName.phone}</p>
-          <p>Name: {userName.name}</p>
+          {userName.phone&&<p>Phone Number: {userName.phone}</p>}
+         {userName.name&& <p>Name: {userName.name}</p>}
 
         </div>
 

@@ -14,7 +14,8 @@ import {
   AiFillWechat,
   AiTwotoneNotification,
 } from "react-icons/ai";
-
+import axiosInstance from '../utils/axiosInstance';
+import UserSearchDropdown from '../pages/SearchDropdown';
 
 
 function NavBar({ username,pic}) {
@@ -25,6 +26,7 @@ function NavBar({ username,pic}) {
    const token = localStorage.getItem('jwtToken')
 
   useEffect(() => {
+    
     const fetchData = async () => {
       try {
         const data = await getNotificationsApi();
@@ -92,6 +94,32 @@ function NavBar({ username,pic}) {
     };
 
 
+    // search for users.....
+    const [showDropdown, setShowDropdown] = useState(false);
+    const [search_user_query,setSearchUserQuery]=useState('')
+    const [searchUsers,setSearchUsers]=useState([])
+   const handleSearch = async()=>{
+      const response = await axiosInstance.get(`${baseUrl}api/search/?query=${search_user_query}`)
+      setSearchUsers(response.data)
+      setShowDropdown(true);
+      console.log(searchUsers)
+      
+   }
+   const handleUserClick = (user) => {
+    
+    console.log('User clicked:', user);
+
+    // Reset search query and hide dropdown after user click
+    setSearchUserQuery('');
+    setShowDropdown(false);
+  };
+  useEffect(() => {
+
+    return () => {
+      setShowDropdown(false);
+    };
+  }, [search_user_query]); 
+
 
   return (
     
@@ -100,16 +128,23 @@ function NavBar({ username,pic}) {
       <div className='collapse navbar-collapse d-flex justify-content-end align-items-center'>
         <div className='navbar-nav'>
             <div className="input-group rounded">
-              <input type="search" className="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-              <span className="input-group-text border-0" id="search-addon">
+              <input type="search" className="form-control rounded" placeholder="Search for friends..." aria-label="Search" aria-describedby="search-addon" 
+              value={search_user_query} onChange={(e)=>setSearchUserQuery(e.target.value)}/>
+              
+              <span className="input-group-text border-0" id="search-addon" onClick={handleSearch}>
                 <FontAwesomeIcon icon={faSearch} className="text-black" />
               </span>
             </div>
+            {showDropdown && searchUsers.length > 0 && (
+              <div className='searchDrop'>
+            <UserSearchDropdown users={searchUsers} handleUserClick={handleUserClick} isadmin={false}/>
+            </div>
+          )}  
         </div>
         
         <div className='nav_profile'>
           {pic ? (
-            <img src={base+ pic} alt="Profile" className='rounded-circle'  />
+            <img src={pic} alt="Profile" className='rounded-circle'  />
           ) : (
             <FontAwesomeIcon icon={faUser} className="text-black nav_image" />
           )}

@@ -5,13 +5,10 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser ,faHeart,faBookmark,faShare, faTrash, faComment} from '@fortawesome/free-solid-svg-icons';
-import { Link ,useNavigate,useParams} from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { baseUrl ,like,deletepost,mypost,user,likecount,createpost, base} from '../utils/constants';
-import axios from 'axios';
+import { baseUrl ,like,deletepost,createpost, base} from '../utils/constants';
 import axiosInstance from '../utils/axiosInstance';
-import NavBar from './NavBar';
-import SideBar from './Sidebar';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import ReactBootstrapModal from 'react-bootstrap/Modal';
@@ -384,9 +381,9 @@ const closeCommentModal = () => {
                     <FontAwesomeIcon icon={faComment} />
           </div>
           
-          <div className='share-btn ml-4'>
+          {/* <div className='share-btn ml-4'>
             <FontAwesomeIcon icon={faShare} />
-          </div>
+          </div> */}
           {isMypost&&
           <div className='delete-btn' style={{ marginLeft: 'auto',marginRight:'20px' }} onClick={()=>handleDeletepost(post.id)}>
             <FontAwesomeIcon icon={faTrash} color='red' />
