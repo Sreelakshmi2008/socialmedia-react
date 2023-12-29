@@ -55,9 +55,9 @@ const UserSearchDropdown = ({ users, handleUserClick ,isadmin}) => {
           <strong>{user.username}</strong>
             <br />{user.name}
           </td>
-          {!isadmin &&
+          {/* {!isadmin &&
           <td className="py-4"
-          style={{paddingLeft:'100px'}}> {/* Increase paddingRight */}
+          style={{paddingLeft:'100px'}}>
             <button type='button'
                   onClick={() => {
                     handleFollowUnfollow(user.id)
@@ -69,7 +69,7 @@ const UserSearchDropdown = ({ users, handleUserClick ,isadmin}) => {
                   UnFollow
             </button>
           </td>
-}
+} */}
         </tr>
       ))}
     </tbody>
