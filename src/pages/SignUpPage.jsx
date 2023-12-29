@@ -126,7 +126,10 @@ const[ImageCropperSrc,setImageCropperSrc]=useState(null)
         // Clear previous email error if any
         setEmailError("");
 
-        
+        if (phone.trim() && !/^\d{10}$/.test(phone)) {
+          toast.error('Phone number must be 10 digits.');
+          event.preventDefault(); // Prevent form submission
+      }
 
         // if passwords matches, then we fetch all the data in form and send it to signup function
         if(pass1===pass2){
