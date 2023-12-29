@@ -72,7 +72,7 @@
 .searchDrop{
   position: fixed;
   top: 60px; /* Adjust the top position based on your navbar height */
-  left: 24%; /* Adjust the right position as needed */
+  left: 29%; /* Adjust the right position as needed */
   z-index: 1000; /* Ensure the modal appears above other elements */
   background-color: white; /* Adjust background color as needed */
   border: 1px solid #ccc; /* Add borders or styling as needed */
