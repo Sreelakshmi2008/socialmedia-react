@@ -99,6 +99,7 @@ const Chat = () => {
         const previousMessages = await GetChatMessages(data.id);
         setMessages(previousMessages);
         await MessageSeenAPI(userId);
+        
         setProfiles((prevProfiles) => {
           return prevProfiles.map((profile) => {
             if (profile.id === data.id) {
