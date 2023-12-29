@@ -124,7 +124,7 @@ function NavBar({ username,pic}) {
   return (
     
     <div className='navbar navbar-expand-lg navbar-light'>
-      <Link to="/homepage" className='navbar-brand'>Name</Link>
+      <Link to="/homepage" className='navbar-brand'><strong>CHIT-CHAT</strong></Link>
       <div className='collapse navbar-collapse d-flex justify-content-end align-items-center'>
         <div className='navbar-nav'>
             <div className="input-group rounded">
