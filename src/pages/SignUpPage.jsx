@@ -53,9 +53,9 @@ function SignUp(){
             else if(field=="phone"){
               toast.error(`Phone: ${errors[field][0]}`);
             }
-            else if(field=="profile_pic"){
-              toast.error(`Profile Picture: ${errors[field][0]}`);
-            }
+            // else if(field=="profile_pic"){
+            //   toast.error(`Profile Picture: ${errors[field][0]}`);
+            // }
             else if(field=="password"){
               toast.error(`Password: ${errors[field][0]}`);
             }
@@ -76,36 +76,36 @@ function SignUp(){
     const [phone,setPhone]=useState("");
     const [pass1,setPass1]=useState("");
     const [pass2,setPass2]=useState("");
-    const [profile_pic,setProfile] = useState(null)
-    const [croppedImage, setCroppedImage] = useState(null);
-const[ImageCropperSrc,setImageCropperSrc]=useState(null)
+//     const [profile_pic,setProfile] = useState(null)
+//     const [croppedImage, setCroppedImage] = useState(null);
+// const[ImageCropperSrc,setImageCropperSrc]=useState(null)
   
-    const handleFileChange = (e) => {
-      const file = e.target.files[0];
-      if (file) {
-        setProfile(file);
+    // const handleFileChange = (e) => {
+    //   const file = e.target.files[0];
+    //   if (file) {
+    //     setProfile(file);
     
-        // Convert the file to a Blob (if needed)
-        const blob = new Blob([file], { type: file.type });
+    //     // Convert the file to a Blob (if needed)
+    //     const blob = new Blob([file], { type: file.type });
     
-        // Use createObjectURL with the Blob
-        const objectUrl = URL.createObjectURL(blob);
+    //     // Use createObjectURL with the Blob
+    //     const objectUrl = URL.createObjectURL(blob);
     
-        // Set the objectUrl as the source for ImageCropper
-        setImageCropperSrc(objectUrl);
+    //     // Set the objectUrl as the source for ImageCropper
+    //     setImageCropperSrc(objectUrl);
     
-        handleShowCropper(); // Open the modal when a file is selected
-      }
+    //     handleShowCropper(); // Open the modal when a file is selected
+    //   }
       
-    };
+    // };
 
  
-    const handleCropComplete = (croppedImageBlob) => {
-      setCroppedImage(URL.createObjectURL(croppedImageBlob));
+    // const handleCropComplete = (croppedImageBlob) => {
+    //   setCroppedImage(URL.createObjectURL(croppedImageBlob));
 
-      handleCloseCropper(); // Close the modal after cropping
+    //   handleCloseCropper(); // Close the modal after cropping
 
-    };
+    // };
 
    
     //   when submit form this fun is called
@@ -144,13 +144,13 @@ const[ImageCropperSrc,setImageCropperSrc]=useState(null)
         formData.append('password', pass1);
          
         
-        const croppedImageData = await (async () => {
-          const response = await fetch(croppedImage);
-          const blob = await response.blob();
-          const fileName = 'croppedImage.png'; // You can generate a unique filename here
-          formData.append('profile_pic', blob, fileName);
-          return { blob, fileName };
-        })();
+        // const croppedImageData = await (async () => {
+        //   const response = await fetch(croppedImage);
+        //   const blob = await response.blob();
+        //   const fileName = 'croppedImage.png'; // You can generate a unique filename here
+        //   formData.append('profile_pic', blob, fileName);
+        //   return { blob, fileName };
+        // })();
         
        
 
@@ -211,11 +211,11 @@ const[ImageCropperSrc,setImageCropperSrc]=useState(null)
                 <label className='pass2'>Confirm Password</label>
                 <input className='form-control pass2_input' type='password' placeholder='Confirm Password.......' value={pass2} onChange={(e) => setPass2(e.target.value)} />
               </div>
-              <div className="form-group">
+              {/* <div className="form-group">
                
                   {profile_pic ? (
                 <div className="form-group">
-                  {/* Display the cropped image preview */}
+                 
                   <img
                     src={croppedImage}
                     alt="Cropped Preview"
@@ -232,7 +232,7 @@ const[ImageCropperSrc,setImageCropperSrc]=useState(null)
 
             
 
-              </div>
+              </div> */}
               
               <button className='btn btn-block create pt-0' type='submit'>Create Account</button>
             </form>
@@ -244,7 +244,7 @@ const[ImageCropperSrc,setImageCropperSrc]=useState(null)
         </div>
       </div>
        {/* Modal for ImageCropper */}
-       <Modal show={showCropper} onHide={handleCloseCropper}>
+       {/* <Modal show={showCropper} onHide={handleCloseCropper}>
         <Modal.Header closeButton>
           <Modal.Title>Crop Image</Modal.Title>
         </Modal.Header>
@@ -259,7 +259,7 @@ const[ImageCropperSrc,setImageCropperSrc]=useState(null)
             Close
           </Button>
         </Modal.Footer>
-      </Modal>
+      </Modal> */}
     </div>
 
     );

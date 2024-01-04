@@ -29,11 +29,12 @@ function Landing(){
           localStorage.setItem('jwtToken', response.data.access);
           localStorage.setItem('refreshjwtToken', response.data.refresh);
     
-          navigate('/homepage', { state: response.data  });
-          console.log(jwtToken)
+          navigate('/homepage');
           toast.success("Succesfully Logged in")
+          
+          
         } catch (error) {
-          console.error(error.response);
+          console.error(error);
           
           if (error.response && error.response.status === 401) {
             // Server responded with a 401 status, meaning authentication failed

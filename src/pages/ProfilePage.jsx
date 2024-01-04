@@ -221,7 +221,11 @@ function Profile() {
                       onClick={handleProfilePictureChange}
                     />
                   ) : (
-                    <FontAwesomeIcon icon={faUser} className="text-5xl text-gray-500 mx-auto mb-4" />
+                    <FontAwesomeIcon icon={faUser} className="text-5xl text-gray-500 mx-auto mb-4"
+                    style={{ width: '100px', height: '100px', marginTop: '5%' }} 
+                    onMouseOver={(e)=>{e.currentTarget.style.opacity='.5',e.currentTarget.style.cursor='pointer'}}
+                      onMouseOut={(e)=>{e.currentTarget.style.opacity='1'}} 
+                      onClick={handleProfilePictureChange}/>
                   )}
                   <h1 className='text-3xl font-bold mb-2'>{userName.username}</h1>
 

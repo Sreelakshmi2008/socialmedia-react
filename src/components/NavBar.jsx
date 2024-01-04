@@ -42,7 +42,7 @@ function NavBar({ username,pic}) {
     if (token) {
       fetchData();
     }
-  }, [token]);
+  }, []);
 
 
     useEffect(() => {
@@ -61,6 +61,7 @@ function NavBar({ username,pic}) {
         };
 
         socket.onmessage = (event) => {
+          console.log(event,"notification socket event ")
           const newNotification = JSON.parse(event.data);
           console.log(newNotification,"new notification");
           if (newNotification.type === "notification") {
@@ -69,9 +70,10 @@ function NavBar({ username,pic}) {
               newNotification.payload,
             ]);
           }
+          console.log(notification,"list of notissssss")
         };
         socket.onerror = (error) => {
-  console.error("WebSocket error:", error);
+  console.error(error);
 };
         socket.onclose = (event) => {
           console.log("WebSocket connection closed", event);
@@ -120,7 +122,7 @@ function NavBar({ username,pic}) {
     };
   }, [search_user_query]); 
 
-
+console.log(notification,"real notisssssssssssssssss")
   return (
     
     <div className='navbar navbar-expand-lg navbar-light'>
